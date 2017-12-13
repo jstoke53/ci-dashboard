@@ -2,7 +2,7 @@
 {% for repo in repos %}   
 
     <div class="child">
-        <div id="repo.id" class="panel {{repo.last_build.state or 'none'}}">
+        <div id="repo.id" class="panel state-{{repo.last_build.state or 'none'}}">
             <div class="panel-top">
                     <a href="{{repo.info.url}}" target="_blank">{{repo.info.slug}}</a>
                     <img src="/static/photos/menu.png" class="menu" role="dialog" data-toggle="modal" data-slug="{{repo.info.slug}}" data-target="#modal">
@@ -31,6 +31,15 @@
                         </div>
                         <div class="col-md-10">
                             {{repo.last_build.commit_author}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for job in repo.last_build.jobs %}
+                                <a href="{{job.url}}" target="_blank" title="job {{job.number}} [{{job.state|capitalize}}]">
+                                    <div class="job-div state-{{job.state}} float-right"></div>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                 {% else %}

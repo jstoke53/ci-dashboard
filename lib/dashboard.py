@@ -46,7 +46,7 @@ class Dashboard:
             return headers, repos
             
 
-    def fetch_builds(self, start=0, end=-1, **kwargs):
+    def fetch_builds(self, start=0, end=None, **kwargs):
         self.__dashboard_data = []
         self.__repos_queue = queue.Queue()
 

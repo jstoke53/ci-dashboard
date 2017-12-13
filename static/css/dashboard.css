@@ -32,7 +32,7 @@ html{font-size:1vw}
     position: relative;
     top:0%;
     width:100%;
-    height:24%;
+    height:22%;
     display: flex;
     color:#fff;
     align-items:center;
@@ -47,8 +47,8 @@ html{font-size:1vw}
 {
     position: absolute;
     color:#fff;
-    top:24%;
-    height:55%;
+    top:22%;
+    height:57%;
     width:100%;
     font-size: 20px;
     margin:-1px;
@@ -59,8 +59,8 @@ html{font-size:1vw}
 .panel-bottom
 {
     position: absolute;
-    top:79%;
-    height:21%;
+    top:81%;
+    height:19%;
     width:100%;
     padding: 0% 5%;
     bottom: 0px;
@@ -76,13 +76,23 @@ html{font-size:1vw}
     margin:0px;
 }
 
-.panel.created{background-color:#1F618D;}
-.panel.started{background-color:#F39C12;}
-.panel.passed{background-color:#27AE60;}
-.panel.failed{background-color:#CB4335;}
-.panel.errored{background-color:#922B21;}
-.panel.canceled{background-color:#5D6D7E;}
-.panel.None{background-color:#A04000;}
+.job-div{
+    display: inline-block;
+    border-radius: 100px;
+    border:2px solid rgba(255, 255, 255, 0.5);
+    margin-right: 4px;
+    width: var(--job-image);
+    height: var(--job-image);
+    float: right;
+}
+
+.state-created{background-color:#1F618D;}
+.state-started{background-color:#F39C12;}
+.state-passed{background-color:#27AE60;}
+.state-failed{background-color:#CB4335;}
+.state-errored{background-color:#922B21;}
+.state-canceled{background-color:#5D6D7E;}
+.state-None{background-color:#A04000;}
 
 .bars-container {
   position: absolute;
