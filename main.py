@@ -25,7 +25,13 @@ def build_actions():
     slug = request.form.get('repo')
     if 'trigger-build' in request.form:
         branch = request.form.get('branch')
-        Repositories().repo(slug).trigger_build(branch)
+        env_vars = {}
+        for key, value in request.form.items():
+            if 'env_var@' in key and value != '[hidden-secret-var]':
+                key = key.split('@')[-1]
+                env_vars[key] = value
+
+        Repositories().repo(slug).trigger_build(branch, env_vars)
 
     elif 'restart-build' in request.form:
         buildid = request.form.get('buildid')

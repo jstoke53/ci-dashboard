@@ -27,10 +27,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md-1">
-                            <img class="icon" src="/static/photos/author.png">
+                            <img class="icon img-circle" src="{{repo.last_build.commit_author_avatar}}">
                         </div>
                         <div class="col-md-10">
-                            {{repo.last_build.commit_author}}
+                            {{repo.last_build.commit_author_name}}
                         </div>
                     </div>
                     <div class="row">

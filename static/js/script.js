@@ -102,14 +102,9 @@ $(document).ready(function(){
 
     //event filter
     $("input[name=events]").on("change", function() { 
-        var events = [];
-        $('input[name=events]:checked').each(function() {
-            events.push($(this).val());
-        });
-
         _dashboardService.reset();
-        _dashboardService.events = events.toString();
-        _dashboardService.updateDashboard();       
+        _dashboardService.events = $('input[name=events]:checked').val();
+        _dashboardService.updateDashboard();
     });
 
     //default branch filter
