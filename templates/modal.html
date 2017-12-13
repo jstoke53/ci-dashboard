@@ -15,17 +15,21 @@
             </div>
 
             <div class="form-group">
-                <a class="env-vars-button" data-toggle="collapse" data-target="#env_vars">Edit Environment variables</a><br>
+                <a class="env-vars-button" data-toggle="collapse" data-target="#env_vars">Environment variables</a><br>
                 <div id="env_vars" class="collapse" style="padding:15px; margin-top:5px; background:#F2F3F4; border:1px solid #CACFD2; border-radius:5px; width:100%">
                     {% if repo.env_vars %}
                         {% for var in repo.env_vars %}
                             <div class="form-group">
+                                <label for="{{var.name}}">{{var.name}}</label>
                                 {% if var.public %}
-                                    <label for="{{var.name}}">{{var.name}}</label>
                                     <input type="text" class="form-control" name="env_var@{{var.name}}" value="{{var.value}}" required>
+                                {% else %}
+                                    <input type="password" class="form-control" name="env_var@{{var.name}}" value="[hidden-secret-var]">
                                 {% endif %}
                             </div>
                         {% endfor %}
+                    {% else %}
+                        No environment variables in this repo
                     {% endif %}
                 </div>
             </div>

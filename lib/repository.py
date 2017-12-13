@@ -47,8 +47,8 @@ class Repository(Clients):
         env_vars = self._Clients__travis_client.env_vars(self.slug_encoded).json()['env_vars']
         return env_vars
 
-    def trigger_build(self, branch):
-        data = {"request": {"branch": branch}}
+    def trigger_build(self, branch, env_vars):
+        data = {"request": {"branch": branch, "config": {"env": env_vars}}}
         self._Clients__travis_client.trigger_build(self.slug_encoded, data)
     
     def restart_build(self, buildid):
@@ -68,7 +68,8 @@ class Repository(Clients):
             "url": build_url.format(id=build['id']),
             "branch": build['branch']['@href'].split('/')[-1],
             "commit_sha": build['commit']['sha'][:7],
-            "commit_author": build['commit']['author']['name'],
+            "commit_author_name": build['commit']['author']['name'],
+            "commit_author_avatar": build['commit']['author']['avatar_url'],
             "commit_url": commit_url.format(sha=build['commit']['sha'])
         }
 
