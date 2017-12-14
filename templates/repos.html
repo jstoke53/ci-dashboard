@@ -36,8 +36,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             {% for job in repo.last_build.jobs %}
-                                <a href="{{job.url}}" target="_blank" title="job {{job.number}} [{{job.state|capitalize}}]">
-                                    <div class="job-div state-{{job.state}} float-right"></div>
+                                <a href="{{job.url}}" style="float: right;" target="_blank" title="job {{job.number}} [{{job.state|capitalize}}]">
+                                    <div class="job-div state-{{job.state}}"></div>
                                 </a>
                             {% endfor %}
                         </div>

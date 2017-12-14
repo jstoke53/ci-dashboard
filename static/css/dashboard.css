@@ -78,12 +78,12 @@ html{font-size:1vw}
 
 .job-div{
     display: inline-block;
-    border-radius: 100px;
-    border:2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
     margin-right: 4px;
     width: var(--job-image);
     height: var(--job-image);
-    float: right;
+    
 }
 
 .state-created{background-color:#1F618D;}

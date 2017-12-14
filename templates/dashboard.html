@@ -15,7 +15,7 @@
             --footer-text: calc({{3.0/grid_size}}rem); 
             --event-details-text: calc({{3.6/grid_size}}rem);
             --event-details-image: calc({{4.5/grid_size}}rem);
-            --job-image: calc({{5/grid_size}}rem); 
+            --job-image: calc({{4.5/grid_size}}rem); 
         }
         body{background: #000}
     </style>
@@ -33,6 +33,7 @@
                 <button class="btn btn-black" type="button" data-toggle="dropdown">Filter</button>
                 <ul id="filter" class="dropdown-menu">
                     <li class="disabled"><a><strong>Event</strong></a></li>
+                    <li value="cron"><a><input name="events" value="all" type="radio" checked/>&nbsp;All</a></li>
                     <li value="cron"><a><input name="events" value="cron" type="radio"/>&nbsp;Cron</a></li>
                     <li value="pull_request"><a><input name="events" value="pull_request" type="radio"/>&nbsp;Pull request</a></li>
                     <li value="push"><a><input name="events" value="push" type="radio"/>&nbsp;Push</a></li>

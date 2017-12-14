@@ -102,8 +102,10 @@ $(document).ready(function(){
 
     //event filter
     $("input[name=events]").on("change", function() { 
+        var filter = $('input[name=events]:checked').val();
+        if(filter == 'all'){filter = null;}
         _dashboardService.reset();
-        _dashboardService.events = $('input[name=events]:checked').val();
+        _dashboardService.events = filter;
         _dashboardService.updateDashboard();
     });
 
