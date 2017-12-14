@@ -68,6 +68,9 @@ function dashboardService() {
                     } 
                 }
             },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                $('#container').html("<p style='color:white'>Cannot connect to server</p>");
+            },
             complete: function() {
                 service.start();
                 $("#update-loader").hide();
