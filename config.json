@@ -5,5 +5,13 @@
     "repos": [],
     "threads": 20,
     "travis_token": "",
-    "view_mode": "onepage"
+    "view_mode": "onepage",
+    "oauth2":{
+        "provider":"github",
+        "client_id":"",
+        "client_secret":"",
+        "callback_url":"",
+        "auth_url":"https://github.com/login/oauth/authorize",
+        "token_url":"https://github.com/login/oauth/access_token"
+    }
 }
