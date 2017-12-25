@@ -68,6 +68,9 @@ function dashboardService() {
                     } 
                 }
             },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                $('#container').html("<p style='color:white'>Cannot connect to server</p>");
+            },
             complete: function() {
                 service.start();
                 $("#update-loader").hide();
@@ -102,13 +105,10 @@ $(document).ready(function(){
 
     //event filter
     $("input[name=events]").on("change", function() { 
-        var events = [];
-        $('input[name=events]:checked').each(function() {
-            events.push($(this).val());
-        });
-
+        var filter = $('input[name=events]:checked').val();
+        if(filter == 'all'){filter = null;}
         _dashboardService.reset();
-        _dashboardService.events = events.toString();
+        _dashboardService.events = filter;
         _dashboardService.updateDashboard();       
     });
 

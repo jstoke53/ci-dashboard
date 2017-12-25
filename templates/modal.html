@@ -20,12 +20,16 @@
                     {% if repo.env_vars %}
                         {% for var in repo.env_vars %}
                             <div class="form-group">
+                                <label for="{{var.name}}">{{var.name}}</label>
                                 {% if var.public %}
-                                    <label for="{{var.name}}">{{var.name}}</label>
                                     <input type="text" class="form-control" name="env_var@{{var.name}}" value="{{var.value}}" required>
+                                {% else %}
+                                    <input type="password" class="form-control" name="env_var@{{var.name}}" value="[hidden-secret-var]">
                                 {% endif %}
                             </div>
                         {% endfor %}
+                    {% else %}
+                        No environment variables in this repo
                     {% endif %}
                 </div>
             </div>

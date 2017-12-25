@@ -19,7 +19,7 @@ class Repository(Clients):
         
     def last_build(self, default_branch=False, **params):
         if default_branch:
-            params['include'] = 'repository.default_branch,branch.last_build,build.commit'
+            params['include'] = 'repository.default_branch,branch.last_build,build.commit,job.state,job.number'
             repo = self._Clients__travis_client.repo(self.slug_encoded, **params).json()
             default_branch = repo['default_branch']
             last_build = default_branch['last_build']
@@ -60,6 +60,7 @@ class Repository(Clients):
     def __buildParser(self, build):
         commit_url = self.github_url + "/commit/{sha}"
         build_url = self.travis_url + "/builds/{id}"
+        job_url = self.travis_url + "/jobs/{id}"
         last_build = {
             "id": build['id'],
             "number": build['number'],
@@ -67,9 +68,22 @@ class Repository(Clients):
             "url": build_url.format(id=build['id']),
             "branch": build['branch']['@href'].split('/')[-1],
             "commit_sha": build['commit']['sha'][:7],
-            "commit_author": build['commit']['author']['name'],
+            "commit_author_name": build['commit']['author']['name'],
+            "commit_author_avatar": build['commit']['author']['avatar_url'],
             "commit_url": commit_url.format(sha=build['commit']['sha'])
         }
+
+        if build['jobs']:
+            jobs = []
+            for job in build['jobs']:
+                data = {
+                    'number':job['number'],
+                    'state':job['state'],
+                    'url':job_url.format(id=job['id'])
+                }
+                jobs.append(data)
+
+            last_build['jobs'] = jobs
 
         if build['event_type'] == 'pull_request':
             last_build['event'] = 'Pull Request #{}'.format(build['pull_request_number'])

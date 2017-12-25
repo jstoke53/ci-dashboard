@@ -37,7 +37,7 @@ def build_actions():
         branch = request.form.get('branch')
         env_vars = {}
         for key, value in request.form.items():
-            if 'env_var@' in key:
+            if 'env_var@' in key and value != '[hidden-secret-var]':
                 key = key.split('@')[-1]
                 env_vars[key] = value
 

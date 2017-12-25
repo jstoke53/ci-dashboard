@@ -44,7 +44,7 @@ class Travis:
     
     def builds(self, slug, **params):
         url = '/repo/' + slug + '/builds'
-        params['include'] = 'build.commit'
+        params['include'] = 'build.commit,job.state,job.number'
         response = self.call_api(url, params=params)
         return response
 
