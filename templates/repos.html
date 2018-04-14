@@ -1,60 +1,35 @@
+<div class="ui four column doubling stackable grid">
 
-{% for repo in repos %}   
+    {% for repo in repos %}   
 
-    <div class="child">
-        <div id="repo.id" class="panel state-{{repo.last_build.state or 'none'}}">
-            <div class="panel-top">
-                    <a href="{{repo.info.url}}" target="_blank">{{repo.info.slug}}</a>
-                    <img src="/static/photos/menu.png" class="menu" role="dialog" data-toggle="modal" data-slug="{{repo.info.slug}}" data-target="#modal">
-             </div>   
-
-            <div class="panel-middle">
-                {% if repo.last_build %}
-                    <div class="event">
-                        <a><span class="event-type">{{repo.last_build.event}}</span></a> 
-                        <a>{{repo.last_build.event_title}}</a>
+        <div class="column">
+            <div class="ui card repo state-{{repo.last_build.state or 'none'}}">
+                <div class="content">
+                    <a class="header center aligned" href="{{repo.info.url}}">{{repo.info.slug}}</a>
+                    <div class="description">
+                        {% if repo.last_build %}
+                            <p><span class="ui label">{{repo.last_build.event}}</span>{{repo.last_build.event_title}}</p>
+                            <div class="details">
+                                <img class="ui image" src="/static/photos/branch.png"> {{repo.last_build.branch}} {{repo.last_build.commit_sha}}  
+                            </div>
+                            <div class="details">
+                                <img class="ui avatar image" src="{{repo.last_build.commit_author_avatar}}"> {{repo.last_build.commit_author_name}}
+                            </div>
+                        {% else %}
+                            <p>No builds for this repository</p>
+                        {% endif %}
                     </div>
-                    <div class="row">
-                        <div class="col-md-1">
-                            <img class="icon" src="/static/photos/branch.png">
-                        </div>
-                        <div class="col-md-10" >
-                            {{repo.last_build.branch}} 
-                            <a href="{{repo.last_build.commit_url}}" target="_blank">
-                                <code>{{repo.last_build.commit_sha}}</code>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-1">
-                            <img class="icon img-circle" src="{{repo.last_build.commit_author_avatar}}">
-                        </div>
-                        <div class="col-md-10">
-                            {{repo.last_build.commit_author_name}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            {% for job in repo.last_build.jobs %}
-                                <a href="{{job.url}}" style="float: right;" target="_blank" title="job {{job.number}} [{{job.state|capitalize}}]">
-                                    <div class="job-div state-{{job.state}}"></div>
-                                </a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% else %}
-                    No builds for this repository
-                {% endif %}
+                </div>
+                <div class="extra content footer center aligned">
+                    {% if repo.last_build %}
+                        <a href="{{repo.last_build.url}}"><span class="left floated">{{repo.last_build.number}}</span></a>  
+                        <span>{{repo.last_build.time_event}}</span>
+                        <span class="right floated">{{repo.last_build.state}}</span>
+                    {% endif %}
+                </div>
             </div>
+        </div> 
 
-            <div class="panel-bottom">
-                {% if repo.last_build %}
-                    <a href="{{repo.last_build.url}}" target="_blank"><strong># {{repo.last_build.number}}</strong></a>
-                    <p>{{repo.last_build.time_event}}</p>
-                    <p><strong>{{repo.last_build.state}}</strong></p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 
-{% endfor %}
+</div>

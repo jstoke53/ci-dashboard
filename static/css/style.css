@@ -1,0 +1,63 @@
+body{
+  background-color: #000;
+}
+
+.container{
+  /* margin:10px; */
+  width:95% !important;
+}
+
+.card .header{
+  font-size: 1.1rem !important;
+  color:inherit !important;
+}
+
+.card{
+  border:0px !important;
+  border-radius:3px !important;
+  box-shadow: none !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+.card .content, .card .content .description{
+  color:inherit !important;
+  background: inherit !important;
+}
+
+.card .footer{
+  font-size: 0.8rem !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.ui .card .image, .ui .card img.avatar{
+  width:1.3em;
+  height:1.3em;
+}
+span{
+  color:inherit;
+}
+
+.card .label{
+  color:#fff;
+  font-size: 0.9rem;  
+  padding:4px !important;
+  margin-right:3px !important;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.details{
+  margin-bottom:3px;
+}
+
+.repo{
+  color:#fff !important;
+}
+.state-created{background-color:#1F618D !important;}
+.state-started{background-color:#F39C12 !important;}
+.state-passed{background-color:#27AE60 !important;}
+.state-failed{background-color:#CB4335 !important;}
+.state-errored{background-color:#922B21 !important;}
+.state-canceled{background-color:#5D6D7E !important;}
+.state-None{background-color:#A04000 !important;}

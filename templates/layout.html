@@ -1,53 +1,16 @@
 <html> 
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="/static/js/script.js?"></script>
-        <link rel="stylesheet" href="/static/css/common.css">
-        <link rel="stylesheet" href="/static/css/dashboard.css">
+
+        <link rel="stylesheet" href="/static/css/semantic.min.css"/>
+        <link rel="stylesheet" href="/static/css/style.css"/>        
+
         {% block header %}
             <title>CI Dashboard</title>
         {% endblock %}
     </head>
     <body>
-
-        <nav class="navbar navbar-inverse" style="border-radius:0px;">
-            <div class="container-fluid" style="width:94%">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">CI Dashboard</a>
-                </div>
-
-                <!--event filter button-->
-                <ul class="nav navbar-nav navbar-left">
-                    {% block filter %} {% endblock %}
-                </ul>
-
-                <ul class="nav navbar-nav navbar-left">  
-                    <p id="pagination"></p>
-                </ul>  
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/dashboard">Dashboard</a></li>
-                    <li><a href="/settings">Settings</a></li>
-                    <li><a href="https://github.com/ahmedelsayed-93/ci-dashboard">Github</a></li>
-                </ul>             
-            </div>
-            <div id="update-loader" class="bars-container">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </nav>
-
-        <div>
-            {% block content %}{% endblock %}
-        </div>
+        {% block content %}{% endblock %}
     </body>
 </html>

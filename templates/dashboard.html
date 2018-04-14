@@ -5,63 +5,19 @@
 
 {% block header %}
     <title>CI Dashboard</title>
-    <style>
-        :root
-        {
-            --panel-width: calc({{100/grid_size}}%);
-            --panel-height: calc({{100/grid_size}}%);
-            --repo-slug: calc({{4/grid_size}}rem);
-            --event-title: calc({{4/grid_size}}rem);
-            --footer-text: calc({{3.0/grid_size}}rem); 
-            --event-details-text: calc({{3.6/grid_size}}rem);
-            --event-details-image: calc({{4.5/grid_size}}rem);
-            --job-image: calc({{4.5/grid_size}}rem); 
-        }
-        body{background: #000}
-    </style>
     <script>
         interval = parseInt("{{interval}}");
         viewMode = "{{view_mode}}";
         startDashboardService();
     </script>
 {% endblock %}
-
 {% block filter %}
-    <li class="navbar-left"> 
-        <ul class="navbar-form">
-            <div class="dropdown">
-                <button class="btn btn-black" type="button" data-toggle="dropdown">Filter</button>
-                <ul id="filter" class="dropdown-menu">
-                    <li class="disabled"><a><strong>Event</strong></a></li>
-                    <li value="cron"><a><input name="events" value="all" type="radio" checked/>&nbsp;All</a></li>
-                    <li value="cron"><a><input name="events" value="cron" type="radio"/>&nbsp;Cron</a></li>
-                    <li value="pull_request"><a><input name="events" value="pull_request" type="radio"/>&nbsp;Pull request</a></li>
-                    <li value="push"><a><input name="events" value="push" type="radio"/>&nbsp;Push</a></li>
-                    <li value="api"><a><input name="events" value="api" type="radio"/>&nbsp;Api</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="disabled"><a><strong>Branches</strong></a></li>
-                    <li value="api"><a><input type="checkbox" name="default_branch"/>&nbsp;Default branches</a></li>
-                </ul>
-            </div>   
-        </ul>                  
-    </li>
-    <li><a id="pagination"></a></li>
 {% endblock %}
 
 {% block content %}
-    <div id="container">
+    <div class="ui container" id="container">
         <div class="loading">
             <img src="/static/photos/loading.gif" width="80px">
-        </div>
-    </div>
-
-    <div class="modal fade" id="modal" role="dialog">
-        <div class="modal-dialog" style="width:35%">
-            <div class="modal-content">
-                <div class="modal-loading">
-                    Loading...
-                </div>
-            </div>
         </div>
     </div>
 {% endblock %}
