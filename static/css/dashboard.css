@@ -83,7 +83,7 @@ html{font-size:1vw}
     margin-right: 4px;
     width: var(--job-image);
     height: var(--job-image);
-    
+    filter: brightness(85%);
 }
 
 .state-created{background-color:#1F618D;}
