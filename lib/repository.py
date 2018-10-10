@@ -5,7 +5,7 @@ class Repository(Clients):
         super().__init__()
         self.slug = slug
         self.slug_encoded = slug.replace('/', '%2F')
-        self.travis_url = "https://travis-ci.org/{slug}".format(slug=slug)
+        self.travis_url = "https://travis-ci.com/{slug}".format(slug=slug)
         self.github_url = "http://github.com/{slug}".format(slug=slug)
 
     def info(self):

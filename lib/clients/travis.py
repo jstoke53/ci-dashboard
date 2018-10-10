@@ -5,12 +5,12 @@ class Travis:
         self.session = requests.Session()
         self.session.headers = {
             'Accept':'application/vnd.travis-ci.2+json',
-            'User-Agent':'MyClient/1.0.0',
+            'User-Agent':'API Explorer',
             'Content-Type':'application/json',
             'Travis-API-Version':'3',
             'Authorization':'token {}'.format(travis_token)
         }
-        self.base_url = 'https://api.travis-ci.org'
+        self.base_url = 'https://api.travis-ci.com'
         
     def call_api(self, url, method='get', data=None, params=None):
         url = self.base_url + url

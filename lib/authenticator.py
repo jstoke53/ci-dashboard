@@ -14,7 +14,7 @@ class Authenticator:
         self.client_secret = client_secret
         self.callback_url = callback_url
         self.state = uuid.uuid4().hex[:5]
-        self.required_scope = 'user:name,user:memberof:{}'.format(self.organization)
+        self.required_scope = 'user:memberof:{}'.format(self.organization)
         self.auth_url = 'https://itsyou.online/v1/oauth/authorize?'
 
     def itsyouonline_auth(self):
@@ -37,7 +37,7 @@ class Authenticator:
         payload = iyo_client.get_access_token(code, state).json()
         session['username'] = payload['info']['username']
         session['access_token'] = payload['access_token']
-        session['is_member_of_org'] = (payload['scope'] == self.required_scope)
+        session['is_member_of_org'] = (payload['scope'].strip(',') == self.required_scope)
         session['expires'] = time.time() + payload['expires_in']
     
 
