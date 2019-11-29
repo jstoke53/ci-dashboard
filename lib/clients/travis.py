@@ -10,7 +10,7 @@ class Travis:
             'Travis-API-Version':'3',
             'Authorization':'token {}'.format(travis_token)
         }
-        self.base_url = 'https://api.travis-ci.org'
+        self.base_url = 'https://api.travis-ci.com'
         
     def call_api(self, url, method='get', data=None, params=None):
         url = self.base_url + url

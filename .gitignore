@@ -98,3 +98,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#vscode
+.vscode/
+
+# app config
+config.json
