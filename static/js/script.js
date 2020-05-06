@@ -1,11 +1,11 @@
 xhr = null;
 
-function startDashboardService() {
+function startDashboardService(branch) {
     _dashboardService = new dashboardService();
     _dashboardService.updateDashboard();
 }
 
-function dashboardService() {
+function dashboardService(branch) {
     service = this;
     service.timer = null;
     service.currentPage = 1;
