@@ -16,10 +16,6 @@ def context_processor():
     return dict(config=config)
 
 @app.route("/")
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html", branch = "")
-
 @app.route("/master")
 def master():
     return render_template("dashboard.html", branch = "master")
