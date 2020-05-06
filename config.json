@@ -3,9 +3,7 @@
     "grid_size": 4,
     "interval": 10000,
     "repos": [
-        "openxc/vi-firmware",
-        "openxc/openxc-android",
-        "openxc/openxc-python"
+        "openxc/openxc-android"
     ],
     "threads": 20,
     "travis_token": "F3dLleBS6tLYxYkp9iLITA",
