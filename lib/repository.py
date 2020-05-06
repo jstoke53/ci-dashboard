@@ -17,7 +17,7 @@ class Repository(Clients):
         }
         return info
         
-    def last_build(self, default_branch=False, **params):
+    def last_build(self, branch, default_branch=False, **params):
         if default_branch:
             params['include'] = 'repository.default_branch,branch.last_build,build.commit,job.state,job.number'
             repo = self._Clients__travis_client.repo(self.slug_encoded, **params).json()
@@ -28,10 +28,14 @@ class Repository(Clients):
             else:
                 return []
         else:
-            params['limit'] = 1
-            builds = self._Clients__travis_client.builds(self.slug_encoded, **params).json()['builds']
-            if builds:
-                return self.__buildParser(builds[0])
+            # params['limit'] = 1
+            # builds = self._Clients__travis_client.builds(self.slug_encoded, **params).json()['builds']
+            # if builds:
+            #     return self.__buildParser(builds[0])
+            params['include'] = 'repository.default_branch,branch.last_build,build.commit,job.state,job.number'
+            last_build = self._Clients__travis_client.branch(self.slug_encoded, branch, **params).json()['last_build'];
+            if last_build:
+                return self.__buildParser(last_build)
             else:
                 return []
             
