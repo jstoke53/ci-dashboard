@@ -18,7 +18,15 @@ def context_processor():
 @app.route("/")
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    return render_template("dashboard.html", branch = "")
+
+@app.route("/master")
+def master():
+    return render_template("dashboard.html", branch = "master")
+    
+@app.route("/next")
+def next():
+    return render_template("dashboard.html", branch = "next")
 
 @app.route("/dashboard", methods=["POST"])
 def build_actions():

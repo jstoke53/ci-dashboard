@@ -1,9 +1,13 @@
 {
     "github_token": "",
-    "grid_size": 3,
+    "grid_size": 4,
     "interval": 10000,
-    "repos": [],
+    "repos": [
+        "openxc/vi-firmware",
+        "openxc/openxc-android",
+        "openxc/openxc-python"
+    ],
     "threads": 20,
-    "travis_token": "",
-    "view_mode": "onepage"
+    "travis_token": "F3dLleBS6tLYxYkp9iLITA",
+    "view_mode": "slideshow"
 }
