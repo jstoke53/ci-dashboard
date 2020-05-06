@@ -10,7 +10,7 @@ function dashboardService(branch) {
     service.timer = null;
     service.currentPage = 1;
     service.events = null;
-    service.default_branch = false;
+    service.default_branch = branch == "default" ? true : false;
     service.branch = branch;
     service.viewMode = viewMode;
     service.interval = interval;
