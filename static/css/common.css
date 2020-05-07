@@ -95,3 +95,21 @@ code
     color:#2874A6;
     cursor: pointer;
 }
+
+#bowserFace{
+    float: left;
+    vertical-align: center;
+    padding-right: 2%;
+    width: 5.5%;
+}
+
+#bowser_bottom_banner{
+    width: 25%;
+    position: absolute;
+    float: right;
+    bottom: 0;
+    margin-left: 77%;
+    opacity: 0.5;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}

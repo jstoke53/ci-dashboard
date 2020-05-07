@@ -4,7 +4,8 @@ class Travis:
     def __init__(self, travis_token):
         self.session = requests.Session()
         self.session.headers = {
-            'Accept':'application/vnd.travis-ci.2+json',
+            # 'Accept':'application/vnd.travis-ci.2+json',
+            'Accept':'application/vnd.travis-ci.2.1+json',
             'User-Agent':'MyClient/1.0.0',
             'Content-Type':'application/json',
             'Travis-API-Version':'3',
@@ -34,6 +35,11 @@ class Travis:
 
     def repos(self, **params):
         url = '/repos'
+        response = self.call_api(url, params=params)
+        return response
+
+    def branch(self, slug, branch, **params):
+        url = '/repo/' + slug + '/branch/' + branch
         response = self.call_api(url, params=params)
         return response
 

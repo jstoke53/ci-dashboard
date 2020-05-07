@@ -15,6 +15,9 @@
 
         <nav class="navbar navbar-inverse" style="border-radius:0px;">
             <div class="container-fluid" style="width:94%">
+
+
+                <img src="/static/photos/bowser-face-png.png" id="bowserFace">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="icon-bar"></span>
@@ -29,12 +32,11 @@
                     {% block filter %} {% endblock %}
                 </ul>
 
-                <ul class="nav navbar-nav navbar-left">  
-                    <p id="pagination"></p>
-                </ul>  
+
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/default">Default</a></li>
+                    <li><a href="/next">Next</a></li>
                     <li><a href="/settings">Settings</a></li>
                     <li><a href="https://github.com/ahmedelsayed-93/ci-dashboard">Github</a></li>
                 </ul>             
