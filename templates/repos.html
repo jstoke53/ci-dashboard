@@ -1,10 +1,10 @@
 
-{% for repo in repos %}   
+{% for repo in repos %}
 
     <div class="child">
         <div id="repo.id" class="panel state-{{repo.last_build.state or 'none'}}">
             <div class="panel-top">
-                    <a href="{{repo.info.url}}" target="_blank">{{repo.info.slug}}</a>
+                    <a href="{{repo.info.url}}" target="_blank">{{repo.info.name}}</a>
                     <img src="/static/photos/menu.png" class="menu" role="dialog" data-toggle="modal" data-slug="{{repo.info.slug}}" data-target="#modal">
              </div>   
 
