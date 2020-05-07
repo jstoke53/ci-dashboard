@@ -1,16 +1,17 @@
 xhr = null;
 
-function startDashboardService() {
-    _dashboardService = new dashboardService();
+function startDashboardService(branch) {
+    _dashboardService = new dashboardService(branch);
     _dashboardService.updateDashboard();
 }
 
-function dashboardService() {
+function dashboardService(branch) {
     service = this;
     service.timer = null;
     service.currentPage = 1;
     service.events = null;
-    service.default_branch = false;
+    service.default_branch = branch == "default" ? true : false;
+    service.branch = branch;
     service.viewMode = viewMode;
     service.interval = interval;
     service.requestData = Object();
@@ -45,6 +46,10 @@ function dashboardService() {
 
         if(service.default_branch) {
             service.requestData.default_branch = service.default_branch;
+        }
+
+        if (service.branch) {
+            service.requestData.branch = service.branch;
         }
         
         xhr = $.ajax({

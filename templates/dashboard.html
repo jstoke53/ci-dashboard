@@ -22,12 +22,12 @@
     <script>
         interval = parseInt("{{interval}}");
         viewMode = "{{view_mode}}";
-        startDashboardService();
+        startDashboardService("{{branch}}");
     </script>
 {% endblock %}
 
 {% block filter %}
-    <li class="navbar-left"> 
+    <!-- <li class="navbar-left"> 
         <ul class="navbar-form">
             <div class="dropdown">
                 <button class="btn btn-black" type="button" data-toggle="dropdown">Filter</button>
@@ -45,7 +45,7 @@
             </div>   
         </ul>                  
     </li>
-    <li><a id="pagination"></a></li>
+    <li><a id="pagination"></a></li> -->
 {% endblock %}
 
 {% block content %}
@@ -64,4 +64,6 @@
             </div>
         </div>
     </div>
+    <img src="/static/photos/bowser-logo-png-3.png" id="bowser_bottom_banner">
 {% endblock %}
+
